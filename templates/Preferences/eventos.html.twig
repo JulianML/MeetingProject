@@ -1,0 +1,23 @@
+{% extends 'Home/preferencias.html.twig' %}
+{% block preferencesFrame %}
+{% set dias = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado"] %}
+<div class="preferences-content">
+    <h3>Mis eventos</h3>
+    <div class="container">
+    {% for evento in events %}
+        <div id="event-card" class="pull-left bg-success">
+            <div class="card-body">
+                <h5 class="card-title">{{ dias[evento.fecha|date('w')] }}-{{ evento.fecha|date('d') }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">{{ evento.descripcion }}</p>
+                <a href="#" class="card-link">Mas info</a>
+                <a href="#" class="card-link">Desactivar</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+	<form role="form" action="{{ path('eventos') }}" method="post">
+        <input type="submit" class="btn" name="submit" value="Guardar o algo">
+	</form>
+</div>
+{% endblock %}

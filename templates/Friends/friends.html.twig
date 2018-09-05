@@ -1,0 +1,11 @@
+{% extends 'preferencesLayout.html.twig' %}
+{% block contenido %}
+<div class="evento-main">
+    <h3>Amistades:</h3>
+    <h4>Lista de amigos </h4>
+    {% for friendAndData in friendAndDataList %}
+		<p>{{ friendAndData.friend.name }} from {{ friendAndData.data }}</p>
+
+    {% endfor %}
+</div>
+{% endblock %}
